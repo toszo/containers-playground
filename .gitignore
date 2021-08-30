@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+dotnet/mycontainerizedApp/bin
+dotnet/mycontainerizedApp/obj
+dotnet/mycontainerizedApp/.vs
+configuration/amqp-api-go/server-url-secret.yml

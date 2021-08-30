@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mytestcontainer-service
+  labels:
+    version: 0.0.1
+spec:
+  selector:
+    app: mytestcontainer-deployment
+  ports:
+  - name: http-port
+    protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30090
+  - name: https-port
+    protocol: TCP
+    port: 443
+    targetPort: 443
+    nodePort: 31143
+  type: NodePort

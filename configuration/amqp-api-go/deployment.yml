@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: amqp-api-deployment
+  name: amqp-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: amqp-api-deployment
+  template:
+    metadata:
+      labels:
+        app: amqp-api-deployment
+    spec:
+      containers:
+      - image: toszo/amqp-api-go:0.0.1
+        name: amqp-api
+        env:
+        - name: SERVER_URL
+          valueFrom:
+            secretKeyRef:
+              name: rmq-server-url
+              key: url
+        - name: QUEUE_NAME
+          value: "rmqqueue"
+          
+
